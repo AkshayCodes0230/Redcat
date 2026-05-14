@@ -1,0 +1,27 @@
+{
+  "entities": {
+    "Stat": {
+      "title": "Stat",
+      "description": "General application statistics",
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "number",
+          "description": "The current count value"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last time this stat was updated"
+        }
+      },
+      "required": ["count", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/stats/{statId}": {
+      "schema": "Stat",
+      "description": "Collection for storing global stats like visitor counters"
+    }
+  }
+}
