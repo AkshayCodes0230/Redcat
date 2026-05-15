@@ -89,8 +89,8 @@ const Navbar = () => {
 
           <Link to="/reviews" className="text-[10px] font-black text-neutral-500 hover:text-brand transition-colors uppercase tracking-[0.3em]">Reviews</Link>
           
-  <a 
-  href="#contact"
+<a 
+  href="/Redcat/#contact"
   className="px-8 py-3 brand-gradient rounded-2xl text-[10px] font-black text-white hover:shadow-2xl hover:shadow-brand/40 transition-all border border-brand/10 uppercase tracking-widest"
 >
   Work with us
@@ -168,8 +168,8 @@ const Navbar = () => {
                 Reviews
               </Link>
 
-   <a 
-  href="#contact"
+<a 
+  href="/Redcat/#contact"
   className="w-full py-6 brand-gradient rounded-3xl text-center font-black text-white shadow-2xl shadow-brand/20 mt-8 uppercase tracking-[0.2em] text-sm"
 >
   Get Started
