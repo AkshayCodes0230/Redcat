@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'motion/react';
 import { incrementVisitorCount, subscribeToVisitorCount } from './firebase';
 
@@ -24,7 +24,7 @@ export default function App() {
 
   useEffect(() => {
     let isSubscribed = true;
-    
+
     const init = async () => {
       try {
         await incrementVisitorCount();
@@ -41,7 +41,6 @@ export default function App() {
 
     init();
 
-    // Fallback timeout
     const timeout = setTimeout(() => {
       if (isSubscribed) setIsLoading(false);
     }, 2000);
@@ -56,6 +55,7 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
+
       <div className="relative overflow-x-hidden selection:bg-brand/10 selection:text-brand">
         <AnimatePresence mode="wait">
           {isLoading ? (
@@ -63,6 +63,7 @@ export default function App() {
           ) : (
             <div key="content" className="flex flex-col min-h-screen">
               <Navbar />
+
               <div className="flex-grow">
                 <Routes>
                   <Route path="/" element={<HomePage />} />
@@ -72,6 +73,7 @@ export default function App() {
                   <Route path="/reviews" element={<ReviewsPage />} />
                 </Routes>
               </div>
+
               <Footer visitorCount={visitorCount} />
               <FloatingSocials />
               <VisitorBadge count={visitorCount} />
