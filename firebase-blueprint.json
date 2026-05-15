@@ -1,27 +1,27 @@
 {
   "entities": {
-    "Stat": {
-      "title": "Stat",
-      "description": "General application statistics",
+    "VisitorStats": {
+      "title": "Visitor Stats",
+      "description": "Publicly accessible document to track total site visitors.",
       "type": "object",
       "properties": {
         "count": {
-          "type": "number",
-          "description": "The current count value"
+          "type": "integer",
+          "description": "Total number of visitors."
         },
         "updatedAt": {
           "type": "string",
           "format": "date-time",
-          "description": "Last time this stat was updated"
+          "description": "Last time the counter was updated."
         }
       },
       "required": ["count", "updatedAt"]
     }
   },
   "firestore": {
-    "/stats/{statId}": {
-      "schema": "Stat",
-      "description": "Collection for storing global stats like visitor counters"
+    "/stats/visitors": {
+      "schema": "VisitorStats",
+      "description": "Single document holding the global visitor counter."
     }
   }
 }

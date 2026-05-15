@@ -1,14 +1,20 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Visitor counter
-    match /stats/{statId} {
-      allow read, write: if statId == 'visitors';
-    }
-    
-    // Default deny for everything else
+    // 0. Global Safety Net - Default Deny
     match /{document=**} {
       allow read, write: if false;
+    }
+
+    // 1. Visitor stats - Publicly accessible
+    // Note: We use {document=**} here to be extremely broad in matching the document
+    match /stats/visitors {
+      allow read, write: if true;
+    }
+    
+    // Backup helper for future admin features
+    function isAdmin() {
+      return request.auth != null && request.auth.token.email == 'akshayacme54@gmail.com' && request.auth.token.email_verified == true;
     }
   }
 }

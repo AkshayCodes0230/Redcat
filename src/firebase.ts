@@ -18,6 +18,16 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
 export const auth = getAuth();
 
+async function testConnection() {
+  try {
+    await getDocFromServer(doc(db, 'stats', 'visitors'));
+    console.log("Firebase connection successful");
+  } catch (error) {
+    console.warn("Initial Firebase connection check failed. This might be expected if the document doesn't exist yet.", error);
+  }
+}
+testConnection();
+
 enum OperationType {
   CREATE = 'create',
   UPDATE = 'update',
