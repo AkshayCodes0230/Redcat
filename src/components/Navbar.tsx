@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDown, Menu, X } from 'lucide-react';
-import { SERVICE_MAPPING } from '../constants/services';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -89,12 +87,12 @@ const Navbar = () => {
 
           <Link to="/reviews" className="text-[10px] font-black text-neutral-500 hover:text-brand transition-colors uppercase tracking-[0.3em]">Reviews</Link>
           
-          <a 
-            href="/#contact" 
-            className="px-8 py-3 brand-gradient rounded-2xl text-[10px] font-black text-white hover:shadow-2xl hover:shadow-brand/40 transition-all border border-brand/10 uppercase tracking-widest"
-          >
-            Work with us
-          </a>
+        <Link 
+  to="/#contact" 
+  className="px-8 py-3 brand-gradient rounded-2xl text-[10px] font-black text-white hover:shadow-2xl hover:shadow-brand/40 transition-all border border-brand/10 uppercase tracking-widest"
+>
+  Work with us
+</Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -168,12 +166,12 @@ const Navbar = () => {
                 Reviews
               </Link>
 
-              <a 
-                href="/#contact" 
-                className="w-full py-6 brand-gradient rounded-3xl text-center font-black text-white shadow-2xl shadow-brand/20 mt-8 uppercase tracking-[0.2em] text-sm"
-              >
-                Get Started
-              </a>
+            <Link 
+  to="/#contact" 
+  className="w-full py-6 brand-gradient rounded-3xl text-center font-black text-white shadow-2xl shadow-brand/20 mt-8 uppercase tracking-[0.2em] text-sm"
+>
+  Get Started
+</Link>
             </div>
           </motion.div>
         )}
