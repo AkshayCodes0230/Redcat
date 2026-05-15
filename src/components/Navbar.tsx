@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link, useLocation } from 'react-router-dom';
+import { ChevronDown, Menu, X } from 'lucide-react';
+import { SERVICE_MAPPING } from '../constants/services';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
